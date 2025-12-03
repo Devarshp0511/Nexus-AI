@@ -11,7 +11,7 @@
 
 **An Event-Driven, Multi-Agent Cognitive Architecture designed to autonomously plan, research, and synthesize complex technical reports.**
 
-[View Live Demo]([nexus-ai-demo.mp4](https://drive.google.com/file/d/1yfH0-2TMERt8SYThCJAg4NBvh1Rybi_i/view?usp=sharing)) · [Report Bug](https://github.com/Devarshp0511/Nexus-AI/issues) · [Request Feature](https://github.com/Devarshp0511/Nexus-AI/issues)
+[View Live Demo]((https://drive.google.com/file/d/1yfH0-2TMERt8SYThCJAg4NBvh1Rybi_i/view?usp=sharing)) · [Report Bug](https://github.com/Devarshp0511/Nexus-AI/issues) · [Request Feature](https://github.com/Devarshp0511/Nexus-AI/issues)
 
 </div>
 
