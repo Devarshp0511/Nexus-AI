@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL (Relational Data: Users, Logs, Task History)
+  postgres:
+    image: postgres:15-alpine
+    container_name: nexus_postgres
+    environment:
+      POSTGRES_USER: nexus
+      POSTGRES_PASSWORD: nexus_password
+      POSTGRES_DB: nexus_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nexus"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Qdrant (Vector Data: Storing PDF/Text Embeddings)
+  qdrant:
+    image: qdrant/qdrant
+    container_name: nexus_qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  # 3. Redis (Message Broker: For Asynchronous Agent Tasks)
+  redis:
+    image: redis:alpine
+    container_name: nexus_redis
+    ports:
+      - "6379:6379"
+
+  # 4. Neo4j (Graph Data: Knowledge Graph of relationships)
+  neo4j:
+    image: neo4j:5.12-community
+    container_name: nexus_neo4j
+    ports:
+      - "7474:7474" # HTTP Interface
+      - "7687:7687" # Bolt Protocol
+    environment:
+      NEO4J_AUTH: neo4j/nexus_password
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  neo4j_data:

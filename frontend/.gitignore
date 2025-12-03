@@ -1,0 +1,15 @@
+# --- IGNORE THESE FOLDERS ---
+node_modules/
+venv/
+__pycache__/
+.next/
+postgres_data/
+qdrant_data/
+neo4j_data/
+dist/
+build/
+
+# --- IGNORE THESE FILES ---
+.env
+.DS_Store
+*.log
